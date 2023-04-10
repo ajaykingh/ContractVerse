@@ -4,7 +4,6 @@ const Navbar = () => {
   return (
     <div>
       <>
-        {/* Navbar */}
         <nav className="navbar navbar-expand-lg navbar-light shadow-5-strong">
           {/* Container wrapper */}
           <div className="container-fluid">
