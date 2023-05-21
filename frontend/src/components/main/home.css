@@ -1,0 +1,50 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    background: #0c0c0c;
+  }
+  
+  .home__title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  
+  .home__description {
+    font-size: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .home__nav {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+  }
+  
+  .home__nav-item {
+    margin-right: 20px;
+    color: #fff;
+  }
+  
+  .home__nav-link {
+    font-size: 18px;
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+  }
+  
+  .home__nav-link:hover {
+    background-color: #333;
+    color: #fff;
+  }
+  
