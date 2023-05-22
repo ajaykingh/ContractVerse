@@ -11,7 +11,28 @@ const ContractGenerator = () => {
     const featureOptions = [
         'Mintable',
         'Burnable',
-        'Pausable'
+        'Pausable',
+        'Votes',
+        'Enumerable',
+        'URIStorage',
+        'AccessControl',
+
+    ];
+
+    const Accesscontrol = [
+        'Ownable',
+        'Roles'
+
+    ];
+
+    const upgradeability = [
+        'Transparent',
+        'UUPS'
+    ];
+
+    const info = [
+        'Security Contact',
+        'License'
     ];
 
 
@@ -71,8 +92,38 @@ const ContractGenerator = () => {
                                         </div>
                                     ))
                                 }
+                                <hr />
+                                <h6 className='text-muted text-small'>ACCESS CONTROL</h6>
+                                {
+                                    Accesscontrol.map(access => (
+                                        <div class="form-check">
+                                            <input className="form-check-input" type="radio" value="" id="flexCheckDefault" />
+                                            <label className="form-check-label" for="flexCheckDefault">{access}</label>
+                                        </div>
+                                    ))
 
 
+                                }
+                                <hr />
+                                <h6 className='text-muted text-small'>UPGRADEABILITY</h6>
+                                {
+                                    upgradeability.map(upgrade => (
+                                        <div class="form-check">
+                                            <input className="form-check-input" type="radio" value="" id="flexCheckDefault" />
+                                            <label className="form-check-label" for="flexCheckDefault">{upgrade}</label>
+                                        </div>
+                                    ))
+                                }
+                                <hr />
+                                <div className="col-md-3"></div>
+                                <h6 className='text-muted text-small'>info </h6>
+
+                                
+                                <label className=""> Security Contact</label>
+                
+                                <input type="text" className="form-control mb-3"  />
+                                <label className=""> License</label>
+                                <input type="text" className="form-control mb-3" />
 
 
                             </div>
