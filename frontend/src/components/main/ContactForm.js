@@ -15,34 +15,90 @@ const ContactForm = () => {
     console.log(conFom)
   }
   return (
-    <div className='main'>
-    <div className="container main2">
-      <h2 className=" text-white"> Contact Us</h2>
-      <form onSubmit={onSubmit}>
-        <div className="mb-3">
-          <label className="form-label " htmlFor="name">
-            Name
-          </label>
-          <input className="form-control" type="text" id="name" required />
+    <>
+  {/* Button trigger modal */}
+  {/* <button
+    type="button"
+    className="btn btn-primary"
+    data-mdb-toggle="modal"
+    data-mdb-target="#staticBackdrop4"
+  >
+    Launch modal contact form
+  </button> */}
+  {/* Modal */}
+  <div
+    className="modal fade"
+    id="staticBackdrop4"
+    tabIndex={-1}
+    aria-labelledby="exampleModalLabel4"
+    aria-hidden="true"
+  >
+    <div className="modal-dialog d-flex justify-content-center">
+      <div className="modal-content w-75">
+        <div className="modal-header">
+          <h5 className="modal-title" id="exampleModalLabel4">
+            Write to us
+          </h5>
+          <button
+            type="button"
+            className="btn-close"
+            data-mdb-dismiss="modal"
+            aria-label="Close"
+          />
         </div>
-        <div className="mb-3">
-          <label className="form-label" htmlFor="email">
-            Email
-          </label>
-          <input className="form-control" type="email" id="email" required />
+        <div className="modal-body p-4">
+          <form>
+            {/* Name input */}
+            <div className="form-outline mb-4">
+              <input type="text" id="name4" className="form-control" />
+              <label className="form-label" htmlFor="name4">
+                Name
+              </label>
+            </div>
+            {/* Email input */}
+            <div className="form-outline mb-4">
+              <input type="email" id="email4" className="form-control" />
+              <label className="form-label" htmlFor="email4">
+                Email address
+              </label>
+            </div>
+            {/* textarea input */}
+            <div className="form-outline mb-4">
+              <textarea
+                id="textarea4"
+                rows={4}
+                className="form-control"
+                defaultValue={""}
+              />
+              <label className="form-label" htmlFor="textarea4">
+                Your message
+              </label>
+            </div>
+            {/* Checkbox */}
+            <div className="form-check d-flex justify-content-center mb-4">
+              <input
+                className="form-check-input me-2"
+                type="checkbox"
+                defaultValue=""
+                id="checkbox4"
+                defaultChecked=""
+              />
+              <label className="form-check-label" htmlFor="checkbox4">
+                Send me a copy of this message
+              </label>
+            </div>
+            {/* Submit button */}
+            <button type="submit" className="btn btn-primary btn-block">
+              Send
+            </button>
+          </form>
         </div>
-        <div className="mb-3">
-          <label className="form-label" htmlFor="message">
-            Message
-          </label>
-          <textarea className="form-control" id="message" required />
-        </div>
-        <button className="btn btn-danger" type="submit">
-          {formStatus}
-        </button>
-      </form>
+      </div>
     </div>
-    </div>
+  </div>
+  {/* Modal */}
+</>
+
   );
 }
 export default ContactForm;
