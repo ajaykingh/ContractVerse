@@ -45,6 +45,7 @@ const ContractGenerator = () => {
 
   const [selStandard, setSelStandard] = useState(standardOptions[0]);
   const [selFeatures, setSelFeatures] = useState([]);
+  const [selAccessControl, setSelAccessControl] = useState('');
   const [tokenName, setTokenName] = useState('MyToken');
   const [symbol, setSymbol] = useState('MTK');
   const [premint, setPremint] = useState(0);
@@ -55,9 +56,12 @@ const ContractGenerator = () => {
     const contractCode = `pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts/token/${selStandard}/${selStandard}.sol";
+${selFeatures.includes('Mintable') ? `import "@openzeppelin/contracts/access/AccessControl.sol";` : ''}
 
 contract ${tokenName} is ${selStandard} {
-    constructor() ${selStandard}("${tokenName}", "${license}") {}
+    constructor() ${selStandard}("${tokenName}", "${license}") {
+      ${(premint) && `_mint(msg.sender, ${premint} * 10 ** decimals());`}
+    }
 }`;
 
     return contractCode;
@@ -87,7 +91,13 @@ contract ${tokenName} is ${selStandard} {
                 <h6 className=" text-small text-white">FEATURES</h6>
                 {featureOptions.map(feature => (
                   <div className="form-check" key={feature}>
-                    <input className="form-check-input text-white" type="checkbox" value="" id="flexCheckDefault" />
+                    <input className="form-check-input text-white" type="checkbox" value="" id="flexCheckDefault" onChange={e => {
+                      if (e.target.checked) {
+                        setSelFeatures([...selFeatures, feature]);
+                      } else {
+                        setSelFeatures(selFeatures.filter(feat => feat !== feature));
+                      }
+                    }} />
                     <label className="form-check-label text-info" htmlFor="flexCheckDefault">{feature}</label>
                   </div>
                 ))}
