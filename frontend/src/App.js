@@ -18,6 +18,7 @@ import PasswordRecoveryPage from './components/main/PasswordRecovery';
 import ContactForm from './components/main/ContactForm';
 import Loginn from './components/main/Loginn';
 import UserAuth from './auth/UserAuth';
+import ContractGenerator from './components/user/ContractGenerator';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           </Route>
           <Route path="user" element={<UserAuth> <User /> </UserAuth>}>
             <Route path="profile" element={<ManageProfile />} />
+            <Route path="Contractgen" element={<ContractGenerator />} />
           </Route>
 
 
