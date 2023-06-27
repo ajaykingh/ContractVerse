@@ -19,16 +19,16 @@ import ContactForm from './components/main/ContactForm';
 import Loginn from './components/main/Loginn';
 import UserAuth from './auth/UserAuth';
 import ContractGenerator from './components/user/ContractGenerator';
+import {Toaster} from 'react-hot-toast';
 
 function App() {
   return (
     <div>
       <BrowserRouter>
-
+      <Toaster position='top-center'/>
         <Routes>
-
           <Route path="/" element={<Navigate to="/main/home" />} />
-          <Route path="main" element={<Main />} >
+          <Route path="main" element={<Main />}>
             <Route path="login" element={<Login />} />
 
             <Route path="signup" element={<SignUp />} />
@@ -40,22 +40,23 @@ function App() {
             <Route path="solidity" element={<StudyMaterial />} />
             {/* <Route path="contarct" element={<MyContract/>} /> */}
           </Route>
-          <Route path="admin" element={<Admin />} >
+          <Route path="admin" element={<Admin />}>
             <Route path="content" element={<AddContent />} />
           </Route>
-          <Route path="user" element={<UserAuth> <User /> </UserAuth>}>
+          <Route
+            path="user"
+            element={
+              <UserAuth>
+                <User />
+              </UserAuth>
+            }
+          >
             <Route path="profile" element={<ManageProfile />} />
             <Route path="Contractgen" element={<ContractGenerator />} />
           </Route>
-
-
         </Routes>
-
-
       </BrowserRouter>
-
     </div>
-
   );
 }
 

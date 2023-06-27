@@ -34,7 +34,7 @@ const Login = () => {
           icon : "success",
           text : "You have successfully logged in"
         });
-        navigate('/user');
+        navigate('/user/Contractgen');
       }else if(res.status === 401){
         Swal.fire({
           title : 'Oops',
