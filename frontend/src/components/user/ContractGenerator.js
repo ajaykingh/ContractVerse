@@ -120,6 +120,17 @@ contract ${tokenName} is ${selStandard} {
 
   };
 
+  const downloadConfig = () => {
+    const configCode = getCode();
+    const element = document.createElement("a");
+    const file = new Blob([configCode], {type: 'text/plain'});
+    element.href = URL.createObjectURL(file);
+    element.download = "contract.sol";
+    document.body.appendChild(element); // Required for this to work in FireFox
+    element.click();
+
+  }
+
   return (
     <div style={{ backgroundImage: `url("https://e1.pxfuel.com/desktop-wallpaper/139/1017/desktop-wallpaper-ethereum-dark.jpg")` }}>
       <div className="container bg-dark pt-3">
@@ -142,7 +153,10 @@ contract ${tokenName} is ${selStandard} {
             
             <div>
                   <button className="btn btn-primary" onClick={copyToClipboard}>
-                    <i class="fas fa-copy    "></i> Copy Code
+                    <i class="fas fa-copy"></i> Copy Code
+                  </button>
+                  <button className="btn btn-primary ms-3" onClick={downloadConfig}>
+                    <i class="fas fa-download "></i> Download
                   </button>
             </div>
             </div>
